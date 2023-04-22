@@ -690,7 +690,7 @@
                                     <div class="image fade-in" style="opacity: 1;">
                                       <img src="https://coyotera.github.io/pvyt-test/images/5frascos.png" alt="Kit 5 Frascos">
                                     </div>
-                                    <h3 class="title lora text-secondary text-center red-text">
+                                    <h3 class="title lora text-secondary text-center red-text return">
                                       3 FRASCOS
                                     </h3>
                                     <div class="contain font-weight-bold text-center">
@@ -972,6 +972,42 @@
 
 
 
+                            <!--- START BOTÃO COM RETORNO --->  
+
+                            <title>scrollToElement</title>
+                            <style>
+                              .button {
+                                display: inline-block;
+                                padding: 10px 20px;
+                                font-size: 22px;
+                                font-weight: bold;
+                                color: #000000;
+                                background-color: #45fe0f;
+                                border: 1px solid #36e900;
+                                border-radius: 5px;
+                                text-decoration: none;
+                                bottom: 0;
+                              }
+                            </style>
+                            <button class="button" onclick="scrollToElement()">COMPRAR AGORA</button>
+                          
+                            <!-- Rolagem -->
+                          
+                            <script>
+                              function scrollToElement() {
+                                const elemento = document.querySelector('.title.lora.text-secondary.text-center.red-text.return');
+                                elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                              }
+                            </script>
+
+                            <!--- THE END BOTÃO COM RETORNO --->  
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+
                             <!--- START FAQ ESTILIZADO --->
 
                                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -1070,7 +1106,7 @@
     
 
                                     <script>
-                                      const definedTime = "00:00:00"; // ((TEMPO DE DELAY AQUI, NO FORMATO HH:MM:SS))
+                                      const definedTime = "00:00:05"; // ((TEMPO DE DELAY AQUI, NO FORMATO HH:MM:SS))
                                       const hiddenContent = document.getElementById('hidden-content');
 
                                       function convertToMilliseconds(time) {
