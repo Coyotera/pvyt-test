@@ -519,7 +519,7 @@
                                           <p class="preco-12x">12x R$ 21,78</p>
                                           <p class="preco-avista">R$ 197,00 à vista</p>
                                           <img src="https://coyotera.github.io/pvyt-test/images/Cards.png" alt="Imagem acima do botão">
-                                          <a href="CHECKOUT 1 FRASCO" class="btn-comprar">Comprar Agora</a>
+                                          <a href="#" class="btn-comprar">Comprar Agora</a>
                                           <img src="https://coyotera.github.io/pvyt-test/images/fretegwhite.png" alt="Imagem abaixo do botão">
                                         </div>
                                         <div class="container">
@@ -530,7 +530,7 @@
                                           <p class="preco-12x">12x R$ 29,82</p>
                                           <p class="preco-avista">R$ 297,00 à vista</p>
                                           <img src="https://coyotera.github.io/pvyt-test/images/Cards.png" alt="Imagem acima do botão">
-                                          <a href="CHECKOUT 3 FRASCOS" class="btn-comprar">Comprar Agora</a>
+                                          <a href="#" class="btn-comprar">Comprar Agora</a>
                                           <img src="https://coyotera.github.io/pvyt-test/images/fretegwhite.png" alt="Imagem abaixo do botão">
                                         </div>
                                         <div class="container">
@@ -542,7 +542,7 @@
                                           <p class="preco-12x">12x R$ 39,86</p>
                                           <p class="preco-avista">R$ 397,00 à vista</p>
                                           <img src="https://coyotera.github.io/pvyt-test/images/Cards.png" alt="Imagem acima do botão">
-                                          <a href="CHECKOUT 5 FRASCOS" class="btn-comprar">Comprar Agora</a>
+                                          <a href="#" class="btn-comprar">Comprar Agora</a>
                                           <img src="https://coyotera.github.io/pvyt-test/images/fretegwhite.png" alt="Imagem abaixo do botão">
                                         </div>
                                       </div>
@@ -626,13 +626,31 @@
                                       }
                                     
                                       /* Media queries */
-                                      @media (max-width: 991px) {
-                                        .imagem3,
+
+                                      @media (min-width: 992px) {
+                                        .imagem3 {
+                                          max-width: 415px;
+                                          max-height: 415px;
+                                        }
                                         .imagem4 {
-                                          max-width: 50% !important;
+                                          max-width: 398px;
+                                          max-height: 185px;
                                         }
                                       }
                                     
+                                      @media (max-width: 991px) {
+                                        .imagem3 {
+                                          max-width: 415px;
+                                          max-height: 415px;
+                                        }
+
+                                        .imagem4 {
+                                          max-width: 398px;
+                                          max-height: 185px;
+                                        }
+                                      }
+
+
                                       @media (min-width: 991px) {
                                         .imagem3,
                                         .imagem4 {
@@ -640,10 +658,12 @@
                                         }
                                       }
                                     
-                                      @media (max-width: 767px) {
+                                      @media (max-width: 769px) {
                                         .imagem3,
                                         .imagem4 {
-                                          max-width: 50%;
+                                          max-width: 70%;
+                                          min-width: 200px;
+                                          height: auto;
                                           margin-bottom: 0.5rem;
                                         }
                                     
@@ -721,7 +741,7 @@
                                           }
                                         }
                                       
-                                        @media (min-width: 768px) {
+                                        @media (min-width: 769px) {
                                           .imagem3,
                                           .imagem4 {
                                             max-width: 40%;
@@ -750,30 +770,30 @@
                             
                             <!--- START BOTÃO COM RETORNO --->  
                             <div style="background-color: white; text-align: center;">
-                              <style>
-                                .button-return {
-                                  display: inline-block;
-                                  padding: 10px 20px;
-                                  font-size: 22px;
-                                  font-weight: bold;
-                                  color: #ffffff;
-                                  background-color: #dc3545;
-                                  border: 1px solid #dc3545;
-                                  border-radius: 5px;
-                                  text-decoration: none;
-                                  bottom: 0;
-                                }
-                              </style>
-                              <button class="button-return" onclick="scrollToElement()">COMPRAR AGORA</button>
-                            
-                              <script>
-                                function scrollToElement() {
-                                  const elemento = document.querySelector('.mais-vendido');
-                                  elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                }
-                              </script>
-                              <br><br><br><br>
-                            </div>
+                                <style>
+                                  .button-return {
+                                    display: inline-block;
+                                    padding: 10px 20px;
+                                    font-size: 22px;
+                                    font-weight: bold;
+                                    color: #ffffff;
+                                    background-color: #dc3545;
+                                    border: 1px solid #dc3545;
+                                    border-radius: 5px;
+                                    text-decoration: none;
+                                    bottom: 0;
+                                  }
+                                </style>
+                                <button class="button-return" onclick="scrollToElement()">COMPRAR AGORA</button>
+                              
+                                <script>
+                                  function scrollToElement() {
+                                    const elemento = document.querySelector('.mais-vendido');
+                                    elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                  }
+                                </script>
+                                <br><br><br><br>
+                              </div>
                             <!--- THE END BOTÃO COM RETORNO --->
                             
 
@@ -832,6 +852,10 @@
                                 @media screen and (max-width: 768px) {
                                     .faq-container {
                                         width: 100%;
+                                    }
+
+                                    .faq-question {
+                                      font-size: 14px;
                                     }
 
                                     .faq-answer {
@@ -907,30 +931,30 @@
 
                             <!--- START BOTÃO COM RETORNO --->  
                             <div style="background-color: white; text-align: center;">
-                              <style>
-                                .button-return {
-                                  display: inline-block;
-                                  padding: 10px 20px;
-                                  font-size: 22px;
-                                  font-weight: bold;
-                                  color: #ffffff;
-                                  background-color: #dc3545;
-                                  border: 1px solid #dc3545;
-                                  border-radius: 5px;
-                                  text-decoration: none;
-                                  bottom: 0;
-                                }
-                              </style>
-                              <button class="button-return" onclick="scrollToElement()">COMPRAR AGORA</button>
-                            
-                              <script>
-                                function scrollToElement() {
-                                  const elemento = document.querySelector('.mais-vendido');
-                                  elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                }
-                              </script>
-                              <br><br><br><br>
-                            </div>
+                                <style>
+                                  .button-return {
+                                    display: inline-block;
+                                    padding: 10px 20px;
+                                    font-size: 22px;
+                                    font-weight: bold;
+                                    color: #ffffff;
+                                    background-color: #dc3545;
+                                    border: 1px solid #dc3545;
+                                    border-radius: 5px;
+                                    text-decoration: none;
+                                    bottom: 0;
+                                  }
+                                </style>
+                                <button class="button-return" onclick="scrollToElement()">COMPRAR AGORA</button>
+                              
+                                <script>
+                                  function scrollToElement() {
+                                    const elemento = document.querySelector('.mais-vendido');
+                                    elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                  }
+                                </script>
+                                <br><br><br><br>
+                              </div>
                             <!--- THE END BOTÃO COM RETORNO --->
 
 
@@ -938,7 +962,7 @@
                     <!---------------- THE END DELAY ----------------->
                           </div>
                           <script>
-                              const definedTime = "00:00:05"; // Tempo de delay no formato HH:MM:SS
+                              const definedTime = "00:00:00"; // Tempo de delay no formato HH:MM:SS
                               const hiddenContent = document.getElementById('hidden-content');
                       
                               function convertToMilliseconds(time) {
