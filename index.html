@@ -371,345 +371,190 @@
                         <!------------ START DELAY ----------->
                       
 
-                            <!--- START FRASCOS --->
-                            <html>
-                              <head>
-                                <meta charset="UTF-8">
-                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                <style>
-                                    * {
-                                      box-sizing: border-box;
+                                <!--- START FRASCOS --->
+
+                         
+                                <!DOCTYPE html>
+                                <html>
+                                <head>
+                                  <title>Exemplo de Produtos</title>
+                                  <style>
+                                    .produtos {
+                                      background-color: #f5f5f5;
+                                      padding: 50px;
+                                      display: flex;
+                                      flex-direction: column;
+                                      align-items: center;
                                     }
                                 
-                                    body {
-                                      margin: 0;
-                                      font-family: Arial, sans-serif;
+                                    .produtos h2 {
+                                      font-size: 36px;
+                                      margin-bottom: 30px;
+                                      color: #cc0001;
                                     }
                                 
-                                    .kit-container {
-                                      min-height: 100vh;
-                                      padding: 20px;
+                                    .produtos .produto-lista {
                                       display: flex;
                                       flex-wrap: wrap;
                                       justify-content: center;
                                       align-items: center;
-                                      background-color: #ffffff;
+                                      max-width: 1000px;
                                     }
                                 
-                                    .kit-items-container {
-                                      display: flex;
-                                      flex-wrap: wrap;
-                                      justify-content: center;
-                                      background-color: #ffffff;
-                                    }
-                                
-                                    .kit-item {
-                                      width: 100%;
-                                      max-width: 30%;
-                                      margin: 10px;
+                                    .produtos .container {
+                                      background-color: white;
+                                      border-radius: 10px;
+                                      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
                                       padding: 20px;
+                                      margin: 20px;
                                       text-align: center;
+                                      width: 300px;
                                       position: relative;
-                                      border: 3px solid #cc0001;
-                                      border-radius: 8px;
-                                      background-color: #f1f1f1;
-                                      overflow-wrap: break-word;
-                                      word-wrap: break-word;
+                                      transition: all 0.3s ease;
                                     }
                                 
-                                    .kit-item img {
-                                      width: 80%;
-                                      height: auto;
+                                    .produtos .container:hover {
+                                      transform: translateY(-10px);
+                                      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
                                     }
                                 
-                                    .title {
-                                      font-size: 24px;
-                                      margin-top: 20px;
+                                    .produtos .container img {
+                                      max-width: 100%;
                                       margin-bottom: 10px;
-                                      text-align: center;
+                                      display: block;
+                                      margin-left: auto;
+                                      margin-right: auto;
+                                    }
+                                
+                                    .produtos .container h3 {
+                                      font-size: 25px;
+                                      margin-top: 10px;
+                                      margin-bottom: 5px;
+                                      color: #00bc22;
+                                      font-weight: bold;
+                                    }
+                                
+                                    .produtos .container p {
+                                      font-size: 18px;
+                                      margin-top: 5px;
+                                      margin-bottom: 5px;
+                                      color: #cc0001;
+                                      font-weight: bold;
+                                    }
+                                
+                                    .produtos .container .preco {
+                                      text-decoration: line-through;
+                                      color: #cc0001;
+                                    }
+                                
+                                    .produtos .container .preco-12x {
+                                      font-weight: bold;
+                                      font-size: 38px;
+                                      margin-top: 5px;
+                                      color: #00bc22;
+                                      display: block;
+                                      white-space: nowrap;
+                                    }
+                                
+                                    .produtos .btn-comprar {
+                                      background-color: #dc3545;
+                                      border: none;
+                                      border-radius: 5px;
+                                      color: white;
+                                      font-size: 16px;
+                                      padding: 10px 20px;
+                                      text-decoration: none;
+                                      transition: all 0.3s ease;
+                                      margin-top: 10px;
+                                      display: inline-block;
+                                      position: static;
+                                      margin-bottom: 10px;
+                                    }
+                                
+                                    .produtos .btn-comprar:hover {
+                                      background-color: #c82333;
+                                      cursor: pointer;
+                                    }
+                                
+                                    .produtos .container .preco-avista {
+                                      font-weight: bold;
+                                      margin-top: 5px;
                                       color: #00bc22;
                                     }
                                 
-                                    .contain {
-                                      font-size: 18px;
-                                      margin-bottom: 10px;
-                                      text-align: center;
-                                    }
-                                
-                                    .contain.font-weight-bold.text-center {
-                                      background-color: #cc0001;
-                                      border-radius: 5px;
-                                      padding: 10px;
-                                    }
-                                
-                                    .price {
-                                      margin-top: 20px;
-                                      margin-bottom: 10px;
-                                    }
-                                
-                                    .value {
-                                      font-size: 18px;
-                                      text-align: center;
-                                    }
-                                
-                                    .num {
-                                      font-size: 24px;
-                                    }
-                                
-                                    .action {
-                                      margin-top: 20px;
-                                      margin-bottom: 20px;
-                                    }
-                                
-                                    .button {
-                                      display: inline-block;
-                                      padding: 10px 20px;
-                                      font-size: 22px;
+                                    .produtos .mais-vendido {
+                                      position: absolute;
+                                      top: -10px;
+                                      right: -10px;
+                                      background-color: #ec0920;
+                                      color: white;
+                                      padding: 5px 10px;
+                                      font-size: 14px;
                                       font-weight: bold;
-                                      color: #000000;
-                                      background-color: #45fe0f;
-                                      border: 1px solid #36e900;
                                       border-radius: 5px;
-                                      text-decoration: none;
-                                      transition: background-color 0.3s ease, border-color 0.3s ease;
-                                      white-space: nowrap;
-                                      text-decoration: none;
-                                      outline: none;
-                                    }
-                                
-                                    .button:hover {
-                                      background-color: #45fe0f;
-                                      border-color: #36e900;
-                                      text-decoration: none;
                                     }
 
-                                    .button:active {
-                                        color: #000000;
-                                    }
-                                
-                                    .green-text {
-                                      color: #00bc22 !important;
-                                      font-weight: bold;
-                                      font-size: 30px;
-                                      text-align: center !important;
-                                    }
-                                
-                                    .bigger-text {
-                                      font-size: 25px;
-                                      color: #00bc22 !important;
-                                      text-align: center !important;
-                                    }
-                                
-                                    .upvalue {
-                                      font-size: 25px;
-                                      color: #cc0001 !important;
-                                      text-align: center!important;
-                                      word-wrap: break-word;
+                                    @media (max-width: 1024px) {
+                                      .produtos .produto-lista .container {
+                                        width: calc(50% - 40px);
+                                      }
                                     }
 
-                                    .downvalue {
-                                    font-size: 25px;
-                                    color: #00bc22 !important;
-                                    text-align: center!important;
-                                    word-wrap: break-word;
+                                    @media (max-width: 768px) {
+                                      .produtos .produto-lista .container {
+                                        width: calc(100% - 40px);
+                                      }
                                     }
-                                
-                                    .value-size {
-                                    font-size: 40px;
-                                    color: #00bc22;
-                                    text-align: center !important;
-                                    }
-                                
-                                    /* Responsividade */
-                                    @media (max-width: 767px) {
-                                    .kit-item {
-                                        max-width: 80%;
-                                        margin: 10px 0;
-                                    }
-                                    .kit-item img {
-                                        width: 80%;
-                                    }
-                                    .kit-container {
-                                        min-height: auto;
-                                    }
-                                    .title {
-                                        font-size: 30px;
-                                    }
-                                    .button {
-                                        font-size: 18px;
-                                        padding: 8px 16px;
-                                    }
-                                    .value-size {
-                                        font-size: 32px;
-                                    }
-                                    .bigger-text {
-                                        font-size: 20px;
-                                    }
-                                    .upvalue {
-                                        font-size: 20px;
-                                    }
-                                    .downvalue {
-                                        font-size: 20px;
-                                    }
-                                    }
-
-                                    @media (min-width: 768px) {
-                                    .kit-item {
-                                        max-width: 60%;
-                                    }
-                                    }
-
-                                    @media (min-width: 735px) {
-                                        .kit-item {
-                                        max-width: 50%;
-                                        margin: 10px;
-                                        padding: 10px;
-                                    }
-                                    }
-
-                                    @media (min-width: 620px) {
-                                        .kit-item {
-                                        max-width: 60%;
-                                        margin: 10px;
-                                        padding: 10px;
-                                    }
-                                    }
-
-                                    @media (min-width: 860px) {
-                                        .kit-item {
-                                        max-width: 40%;
-                                    }
-                                    }
-
-                                    @media (min-width: 992px) {
-                                        .kit-item {
-                                        max-width: 30%;
-                                    }
-                                    }
-
-                                    @media (min-width: 1200px) {
-                                        .kit-item {
-                                        max-width: 25%;
-                                    }
-                                    }
-
-                                    @media (max-width: 480px) {
-                                        .button {
-                                        white-space: normal;
-                                        max-width: 100%;
-                                        margin: 10px 0;
-                                        }
-                                    }
-
-                                    @media (min-width: 481px) {
-                                        .button {
-                                        white-space: nowrap;
-                                        margin: 0 10px;
-                                        }
-                                    }
-
-                                    @media (max-width: 305px) {
-                                        .button {
-                                        max-width: calc(100% - 40px);
-                                        margin: 10px 0;
-                                        }
-                                    }
-                            </style>
-                              </head>
-                              <body>
-                                <section>
-                                 <div class="kit-items-container">
-                                  <div class="kit-item">
-                                    <div class="image fade-in">
-                                      <img src="https://coyotera.github.io/pvyt-test/images/1frasco.png" alt="Kit 1 Frasco">
-                                    </div>
-                                    <div class="item-content">
-                                      <h3 class="title lora text-secondary text-center green-text">1 FRASCO</h3>
-                                      <div class="contain font-weight-bold text-center descricao">Inicie Sua Jornada Épica</div>
-                                      <div class="price text-center">
-                                        <div class="value font-weight-bold text-primary bigger-text">
-                                          <div class="divide">12x</div>
-                                          <div class="num value-size">R$21,78</div>
+                                  </style>
+                                  </head>
+                                  <body>
+                                    <section class="produtos">
+                                      <h2>Se torne aquilo que elas tanto desejam!</h2>
+                                      <div class="produto-lista">
+                                        <div class="container">
+                                          <img src="https://coyotera.github.io/pvyt-test/images/1frasco.png" alt="Produto 1">
+                                          <h3>1 Frasco</h3>
+                                          <p>Inicie Sua Jornada Épica</p>
+                                          <p class="invisivel">⠀⠀⠀⠀⠀⠀⠀⠀⠀</p>
+                                          <p class="preco-12x">12x R$ 21,78</p>
+                                          <p class="preco-avista">R$ 197,00 à vista</p>
+                                          <img src="https://coyotera.github.io/pvyt-test/images/Cards.png" alt="Imagem acima do botão">
+                                          <a href="#" class="btn-comprar">Comprar</a>
+                                          <img src="https://coyotera.github.io/pvyt-test/images/fretegwhite.png" alt="Imagem abaixo do botão">
                                         </div>
-                                        <div class="full font-weight-bold downvalue">ou R$197,00 à vista</div>
-                                      </div>
-                                      <br>
-                                      <div class="image">
-                                        <img class="image1" src="https://coyotera.github.io/pvyt-test/images/Cards.png" alt="Imagem 1">
-                                      </div>
-                                      <div class="action text-center">
-                                        <a href="CHECKOUT AQUI" class="button font-weight-extrabold">COMPRAR AGORA</a>
-                                      </div>
-                                      <div class="image">
-                                        <img class="image2" src="https://coyotera.github.io/pvyt-test/images/fretegwhite.png" alt="Imagem 2">
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="kit-item">
-                                    <div class="image fade-in">
-                                      <img src="https://coyotera.github.io/pvyt-test/images/3frascos.png" alt="Kit 3 Frascos">
-                                    </div>
-                                    <div class="item-content">
-                                      <h3 class="title lora text-secondary text-center green-text">3 FRASCOS</h3>
-                                      <div class="contain font-weight-bold text-center descricao">Veja o Meninão ficar GALUDÃO</div>
-                                      <div class="price text-center return">
-                                        <div class="text font-weight-bold upvalue">
-                                            De
-                                            <del>R$591,00</del>
-                                            por apenas
-                                          </div>
-                                        <div class="value font-weight-bold text-primary bigger-text">
-                                          <div class="divide">12x</div>
-                                          <div class="num value-size">R$29,82</div>
+                                        <div class="container">
+                                          <img src="https://coyotera.github.io/pvyt-test/images/3frascos.png" alt="Produto 2">
+                                          <h3>3 Frascos</h3>
+                                          <p>Surgindo o MONSTRÃO</p>
+                                          <p class="preco">R$ 591,00</p>
+                                          <p class="preco-12x">12x R$ 29,82</p>
+                                          <p class="preco-avista">R$ 297,00 à vista</p>
+                                          <img src="https://coyotera.github.io/pvyt-test/images/Cards.png" alt="Imagem acima do botão">
+                                          <a href="#" class="btn-comprar">Comprar</a>
+                                          <img src="https://coyotera.github.io/pvyt-test/images/fretegwhite.png" alt="Imagem abaixo do botão">
                                         </div>
-                                        <div class="full font-weight-bold downvalue">ou R$297,00 à vista</div>
-                                      </div>
-                                      <br>
-                                      <div class="image">
-                                        <img class="image1" src="https://coyotera.github.io/pvyt-test/images/Cards.png" alt="Imagem 1">
-                                      </div>
-                                      <div class="action text-center">
-                                        <a href="CHECKOUT AQUI" class="button font-weight-extrabold">COMPRAR AGORA</a>
-                                      </div>
-                                      <div class="image">
-                                        <img class="image2" src="https://coyotera.github.io/pvyt-test/images/fretegwhite.png" alt="Imagem 2">
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="kit-item">
-                                    <div class="image fade-in">
-                                      <img src="https://coyotera.github.io/pvyt-test/images/5frascos.png" alt="Kit 5 Frascos">
-                                    </div>
-                                    <div class="item-content">
-                                      <h3 class="title lora text-secondary text-center green-text">5 FRASCOS</h3>
-                                      <div class="contain font-weight-bold text-center descricao">Torne-se um CEIFADOR de Perseguidas</div>
-                                      <div class="price text-center">
-                                        <div class="text font-weight-bold upvalue">
-                                            De
-                                            <del>R$985,00</del>
-                                            por apenas
-                                          </div>
-                                        <div class="value font-weight-bold text-primary bigger-text">
-                                          <div class="divide">12x</div>
-                                          <div class="num value-size">R$39,86</div>
+                                        <div class="container">
+                                          <span class="mais-vendido">Mais Vendido</span>
+                                          <img src="https://coyotera.github.io/pvyt-test/images/5frascos.png" alt="Produto 3">
+                                          <h3>5 Frascos</h3>
+                                          <p>CEIFADOR de Perseguidas</p>
+                                          <p class="preco">R$ 985,00</p>
+                                          <p class="preco-12x">12x R$ 39,86</p>
+                                          <p class="preco-avista">R$ 397,00 à vista</p>
+                                          <img src="https://coyotera.github.io/pvyt-test/images/Cards.png" alt="Imagem acima do botão">
+                                          <a href="#" class="btn-comprar">Comprar</a>
+                                          <img src="https://coyotera.github.io/pvyt-test/images/fretegwhite.png" alt="Imagem abaixo do botão">
                                         </div>
-                                        <div class="full font-weight-bold downvalue">ou R$397,00 à vista</div>
                                       </div>
-                                      <br>
-                                      <div class="image">
-                                        <img class="image1" src="https://coyotera.github.io/pvyt-test/images/Cards.png" alt="Imagem 1">
-                                      </div>
-                                      <div class="action text-center">
-                                        <a href="CHECKOUT AQUI" class="button font-weight-extrabold">COMPRAR AGORA</a>
-                                      </div>
-                                      <div class="image">
-                                        <img class="image2" src="https://coyotera.github.io/pvyt-test/images/fretegwhite.png" alt="Imagem 2">
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>                                
-                            </body> 
-                            </html>
+                                    </section>
+                                  </body>
+                                  </html>
+                            
+
+
+
+
+
                                 <!--- THE END FRASCOS ---> 
 
 
@@ -905,30 +750,30 @@
                             
                             <!--- START BOTÃO COM RETORNO --->  
                             <div style="background-color: white; text-align: center;">
-                                <style>
-                                  .button {
-                                    display: inline-block;
-                                    padding: 10px 20px;
-                                    font-size: 22px;
-                                    font-weight: bold;
-                                    color: #000000;
-                                    background-color: #45fe0f;
-                                    border: 1px solid #36e900;
-                                    border-radius: 5px;
-                                    text-decoration: none;
-                                    bottom: 0;
-                                  }
-                                </style>
-                                <button class="button" onclick="scrollToElement()">COMPRAR AGORA</button>
-                              
-                                <script>
-                                  function scrollToElement() {
-                                    const elemento = document.querySelector('.price.text-center.return');
-                                    elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                  }
-                                </script>
-                                <br><br><br>
-                              </div>
+                              <style>
+                                .button-return {
+                                  display: inline-block;
+                                  padding: 10px 20px;
+                                  font-size: 22px;
+                                  font-weight: bold;
+                                  color: #ffffff;
+                                  background-color: #dc3545;
+                                  border: 1px solid #dc3545;
+                                  border-radius: 5px;
+                                  text-decoration: none;
+                                  bottom: 0;
+                                }
+                              </style>
+                              <button class="button-return" onclick="scrollToElement()">COMPRAR AGORA</button>
+                            
+                              <script>
+                                function scrollToElement() {
+                                  const elemento = document.querySelector('.mais-vendido');
+                                  elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                }
+                              </script>
+                              <br><br><br>
+                            </div>
                             <!--- THE END BOTÃO COM RETORNO --->
                             
 
@@ -1062,30 +907,30 @@
 
                             <!--- START BOTÃO COM RETORNO --->  
                             <div style="background-color: white; text-align: center;">
-                                <style>
-                                  .button {
-                                    display: inline-block;
-                                    padding: 10px 20px;
-                                    font-size: 22px;
-                                    font-weight: bold;
-                                    color: #000000;
-                                    background-color: #45fe0f;
-                                    border: 1px solid #36e900;
-                                    border-radius: 5px;
-                                    text-decoration: none;
-                                    bottom: 0;
-                                  }
-                                </style>
-                                <button class="button" onclick="scrollToElement()">COMPRAR AGORA</button>
-                              
-                                <script>
-                                  function scrollToElement() {
-                                    const elemento = document.querySelector('.price.text-center.return');
-                                    elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                  }
-                                </script>
-                                <br><br><br><br>
-                              </div>
+                              <style>
+                                .button-return {
+                                  display: inline-block;
+                                  padding: 10px 20px;
+                                  font-size: 22px;
+                                  font-weight: bold;
+                                  color: #ffffff;
+                                  background-color: #dc3545;
+                                  border: 1px solid #dc3545;
+                                  border-radius: 5px;
+                                  text-decoration: none;
+                                  bottom: 0;
+                                }
+                              </style>
+                              <button class="button-return" onclick="scrollToElement()">COMPRAR AGORA</button>
+                            
+                              <script>
+                                function scrollToElement() {
+                                  const elemento = document.querySelector('.mais-vendido');
+                                  elemento.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                }
+                              </script>
+                              <br><br><br>
+                            </div>
                             <!--- THE END BOTÃO COM RETORNO --->
 
 
@@ -1197,7 +1042,8 @@
             
             <!--- START INTERVALO --->
             <section>
-                <br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </section>
             <!--- THE END INTERVALO  --->
 
         
