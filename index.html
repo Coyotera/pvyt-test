@@ -1,144 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,follow">
-    <style>
-    .promo-container {
-        background-color: #f5f5f5;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 40vh;
-        width: 100%;
-        position: relative;
-        z-index: 1;
-    }
-
-    .promocao-exclusiva {
-        text-align: center;
-        background-color: #fff;
-        padding: 2rem;
-        padding-top: 1rem;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-        font-family: Arial, sans-serif;
-    }
-
-    .promocao-exclusiva h1 {
-        font-size: 3rem;
-        color: #e74c3c;
-        margin-bottom: 1rem;
-        margin-top: 0;
-    }
-
-    .timer {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
-        font-weight: bold;
-    }
-
-    .timer span {
-        font-size: 1.5rem;
-        background-color: #e74c3c;
-        color: #fff;
-        padding: 0.25rem 0.5rem;
-        border-radius: 5px;
-    }
-
-    .promocao-exclusiva p {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-        line-height: 1.2;
-    }
-
-    @media (max-width: 768px) {
-        .promocao-exclusiva h1 {
-            font-size: 2.5rem;
-        }
-
-        .timer span {
-            font-size: 1.25rem;
-        }
-
-        .promocao-exclusiva p {
-            font-size: 1rem;
-        }
-    }
-    .formatted-text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: Arial, sans-serif;
-    }
-
-    .formatted-text p {
-        margin: 0.2rem 0;
-    }
-
-    .formatted-text strong {
-        font-weight: bold;
-    }
-
-    
-    .green-text {
-        color: #44f425;
-    }
-</style>
-</head>
-<body>
-    <div class="promo-container">
-        <section class="promocao-exclusiva">
-            <h1>Promoção Exclusiva!</h1>
-            <div class="timer">
-                <span id="minutes">14</span> Minutos
-                <span id="seconds">59</span> Segundos
-            </div>
-            <div class="formatted-text">
-                <p>GANHE UM</p>
-                <p class="green-text"><strong>FRASCO GRÁTIS</strong></p>
-                <p>NA SUA COMPRA</p>
-                <p>VÁLIDOS PELOS PRÓXIMOS <strong>15 MINUTOS</strong></p>
-            </div>
-        </section>
-    </div>
-</body>
-
-    <body>
-        <script>
-            function updateTimer() {
-                const endTime = new Date().getTime() + 899000; // Subtrai 1 segundo (1000 ms) do tempo total
-    
-                const interval = setInterval(function() {
-                    const now = new Date().getTime();
-                    const timeLeft = endTime - now;
-    
-                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-    
-                    document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-                    document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
-    
-                    if (timeLeft < 0) {
-                        clearInterval(interval);
-                        document.getElementById("minutes").textContent = "00";
-                        document.getElementById("seconds").textContent = "00";
-                    }
-                }, 1000);
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <title>Pop-up</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
             }
-            updateTimer();
-        </script>
-    </body>
+    
+            .popup-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 9999;
+            }
+    
+            .popup {
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                max-width: 90%;
+                width: 300px;
+            }
+    
+            h2 {
+                margin-top: 0;
+                color: red !important;
+                font-size: 40px !important;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            p b {
+                color: rgb(0, 193, 0);
+            }
+    
+            .timer {
+              font-size: 30px;
+              font-weight: bold;
+              display: inline-block;
+              padding: 10px 20px;
+              background-color: #000;
+              color: #0f0;
+              border-radius: 5px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              font-family: "Courier New", monospace;
+              }
+    
+            .close-btn {
+                display: inline-block;
+                font-size: 18px;
+                background-color: #007BFF;
+                color: #ffffff;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                text-decoration: none;
+                transition: background-color 0.2s;
+            }
+    
+            .close-btn:hover {
+                background-color: #0056b3;
+            }
+
+            @keyframes surpriseAnimation {
+                0% {
+                    opacity: 0;
+                    transform: scale(0);
+                }
+                70% {
+                    opacity: 1;
+                    transform: scale(1.3);
+                }
+                100% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="popup-overlay">
+            <div class="popup">
+                <h2>Promoção Exclusiva!</h2>
+                <div class="timer">
+                    <span id="minutes">15</span>:<span id="seconds">00</span>
+                </div>
+                <p>GANHE <b>UM FRASCO</b> GRÁTIS NA SUA COMPRA.<br>VÁLIDO APENAS PELOS PRÓXIMOS <b>15 MINUTOS.</b></p>
+                <button class="close-btn">EU QUERO!</button>
+            </div>
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+              const closeBtn = document.querySelector('.close-btn');
+              const popupOverlay = document.querySelector('.popup-overlay');
+              const minutesSpan = document.getElementById('minutes');
+              const secondsSpan = document.getElementById('seconds');
+              let timeLeft = 15 * 60; // [15 minutes in seconds]
+      
+              closeBtn.addEventListener('click', () => {
+                  popupOverlay.style.display = 'none';
+              });
+      
+              function updateTimer() {
+                  const minutes = Math.floor(timeLeft / 60);
+                  const seconds = timeLeft % 60;
+      
+                  minutesSpan.textContent = minutes.toString().padStart(2, '0');
+                  secondsSpan.textContent = seconds.toString().padStart(2, '0');
+      
+                  if (timeLeft <= 0) {
+                      clearInterval(timerInterval);
+                  } else {
+                      timeLeft--;
+                  }
+              }
+      
+              const timerInterval = setInterval(updateTimer, 1000);
+      
+              // Function to add animation to the pop-up
+              function addPopupAnimation() {
+                  popupOverlay.style.display = 'flex'; // Add this line to show the pop-up before applying the animation
+                  const popup = document.querySelector('.popup');
+                  popup.style.animation = 'surpriseAnimation 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+              }
+      
+              // Call the addPopupAnimation() function 1 seconds after the page loads
+              window.addEventListener('load', () => {
+                  setTimeout(addPopupAnimation, 1000);
+              });
+          });
+      </script>
+          </div>
+        </body>
 
 
-<head>
-    <style> 
+
+    <head>
+    <style>
+        .independent-section {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
         .custom-section-container {
-            position: relative;
-            z-index: 1;
             width: 100%;
         }
 
@@ -162,20 +179,21 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            gap: 1rem;
         }
 
         .left-image {
-            width: 48%;
+            width: 40%;
             max-width: 300px;
         }
 
         .right-texts {
-            width: 48%;
+            width: 40%;
             max-width: 300px;
+            margin-left: 2rem;
+            text-align: left;
         }
 
-        .right-texts li {
+        .right-texts p {
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
             line-height: 1.5;
@@ -192,33 +210,39 @@
             }
 
             .right-texts {
+                margin-left: 0;
                 margin-top: 1rem;
+                text-align: left;
             }
 
-            @media (max-width: 768px) {
             .left-image {
                 max-width: 65%;
-                min-width: 150px; }
+                min-width: 150px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
     </style>
-</head>
-<body>
-    <div class="custom-section-container">
-        <section class="custom-section">
-            <h2>Deixe seu pau do tamanho de uma coca de 600ML</h2>
-            <div class="content-wrapper">
-                <img src="https://coyotera.github.io/ytpv/images/5frascos.png" alt="Imagem Exemplo" class="left-image">
-                <ul class="right-texts">
-                    <li>✔️ Produto 100% natural</li>
-                    <li>✔️ Efeito duradouro e permanente</li>
-                    <li>✔️ Resultado já nas primeiras semanas</li>
-                    <li>✔️ Ajuda a turbinar suas ereções</li>
-                </ul>
-            </div>
-        </section>
+  </head>
+  <body>
+    <div class="independent-section">
+        <div class="custom-section-container">
+            <section class="custom-section">
+              <h2 style="color: #000;">Deixe seu pau do tamanho de uma coca de 600ML</h2>
+                <div class="content-wrapper">
+                    <img src="https://coyotera.github.io/ytpv/images/5frascos.png" alt="Imagem Exemplo" class="left-image">
+                    <div class="right-texts">
+                        <p>✅ Produto 100% natural</p>
+                        <p>✅ Efeito duradouro e permanente</p>
+                        <p>✅ Resultado já nas primeiras semanas</p>
+                        <p>✅ Ajuda a turbinar suas ereções</p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
-</body>
+  </body>
 
 
 <div>
@@ -917,7 +941,7 @@
                                   text-align: center;
                                   padding: 20px;
                                   margin: 20px;
-                                  max-width: 75%;
+                                  max-width: 80%;
                                   margin: 20px auto;
                                   line-height: 1.5;
                                 }
@@ -992,16 +1016,16 @@
                                   justify-content: center;
                                   align-items: center;
                                   margin: 0 auto;
-                                  font-size: 12px;
+                                  font-size: 6px !important;
                                   color: #202124;
                                   line-height: 1.5;
                                   text-align: justify;
-                                  max-width: 90%;
+                                  max-width: 95%;
                                 }
                                 
                                 .copyright {
                                   margin-top: 35px;
-                                  font-size: 8px;
+                                  font-size: 6px;
                                   color: #202124;
                                 }
                                 
@@ -1009,16 +1033,23 @@
                                   .small-link {
                                     font-size: 8px;
                                   }
+
+                                  .footer-text {
+                                    font-size: 6px;
+                                  }
                                 }
                                 
                                 @media (max-width: 220px) {
                                   .small-link {
-                                    font-size: 9px;
+                                    font-size: 8px;
+                                  }
+
+                                  .footer-text {
+                                    font-size: 6px;
                                   }
                                 }
                               </style>
                             </head>
-                            
                             <body>
                               <div class="section">
                                 <div class="links-container">
