@@ -898,17 +898,42 @@
                               </div>
                             </div>
 
-                             <head>
+                            <head>
+                              <meta charset="UTF-8">
+                              <meta name="viewport" content="width=device-width, initial-scale=1.0">
                               <title>Seção de aviso sobre o ASURA GOTAS</title>
                               <style>
+                                body {
+                                  margin: 0;
+                                  padding: 0;
+                                  box-sizing: border-box;
+                                  font-family: Arial, sans-serif;
+                                }
+                                
                                 .warning-section {
                                   background-color: #ffffff;
-                                  color: #FFF;
+                                  color: #000;
                                   font-size: 25px;
                                   font-weight: bold;
                                   text-align: center;
                                   padding: 20px;
-                                  margin: 20px 0;
+                                  margin: 20px;
+                                  border: 1px solid #000;
+                                  max-width: 90%;
+                                  margin: 20px auto;
+                                  line-height: 1.5;
+                                }
+                                
+                                @media (max-width: 480px) {
+                                  .warning-section {
+                                    font-size: 18px;
+                                  }
+                                }
+                                
+                                @media (max-width: 320px) {
+                                  .warning-section {
+                                    font-size: 16px;
+                                  }
                                 }
                               </style>
                             </head>
@@ -919,8 +944,6 @@
                             </body>
 
 
-                            <!DOCTYPE html>
-                            <html lang="pt-BR">
                             <head>
                               <meta charset="UTF-8">
                               <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -981,7 +1004,7 @@
                                 .copyright {
                                   margin-top: 35px;
                                   font-size: 8px;
-                                  color: #fff;
+                                  color: #202124;
                                 }
                                 
                                 @media (max-width: 480px) {
